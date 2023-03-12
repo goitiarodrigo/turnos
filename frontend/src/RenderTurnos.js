@@ -8,7 +8,7 @@ const RenderTurnos = () => {
     async function getDoctor() {
       try {
         let response = await axios.get(
-          `http://localhost:4000/api/doctor/6133dd2cd36ee78b7d6a8be6`
+          `https://turno-test.onrender.com/api/doctor/6133dd2cd36ee78b7d6a8be6`
         );
         setAppointments(response.data.response.appointment);
       } catch (e) {}

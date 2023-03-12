@@ -4,7 +4,7 @@ const doctorActions = {
    getDoctors: () => {
       return async (dispatch, getState) => {
          try {
-            let res = await axios.get("http://localhost:4000/api/doctors")
+            let res = await axios.get("https://turno-test.onrender.com/api/doctors")
             dispatch({ type: "GET_ALL_DOCTORS", payload: res.data.res })
             return { success: true, res: res.data.res }
          } catch (err) {
@@ -15,7 +15,7 @@ const doctorActions = {
    getOneDoctorDB: (id) => {
       return async (dispatch, getState) => {
          try {
-            let res = await axios.get(`http://localhost:4000/api/doctor/${id}`)
+            let res = await axios.get(`https://turno-test.onrender.com/api/doctor/${id}`)
             if (res.data.success) {
                dispatch({ type: "GET_ONE_DOCTOR_DB", payload: res.data.res })
                return { success: true, res: res.data.res }
@@ -31,7 +31,7 @@ const doctorActions = {
       return async () => {
          try {
             let res = await axios.put(
-               `http://localhost:4000/api/doctor/${id}`,
+               `https://turno-test.onrender.com/api/doctor/${id}`,
                {text, action, reviewId},
                {
                   headers: {
@@ -50,7 +50,7 @@ const doctorActions = {
       return async () => {
          try {
             let res = await axios.get(
-               "http://localhost:4000/api/appointments/",
+               "https://turno-test.onrender.com/api/appointments/",
                {
                   headers: {
                      Authorization: "Bearer " + token,
@@ -71,7 +71,7 @@ const doctorActions = {
       return async () => {
          try {
             let res = await axios.delete(
-               `http://localhost:4000/api/appointment/${id}`,
+               `https://turno-test.onrender.com/api/appointment/${id}`,
                {
                   headers: {
                      Authorization: "Bearer " + token,
@@ -92,7 +92,7 @@ const doctorActions = {
       return async () => {
          try {
             let res = await axios.get(
-               `http://localhost:4000/api/appointment/${dorctorid}`
+               `https://turno-test.onrender.com/api/appointment/${dorctorid}`
             )
             if(res.data.success){
                return { success: true, res: res.data.res }
@@ -107,7 +107,7 @@ const doctorActions = {
    getOneDoctorReviews: (id) => {
       return async () => {
          try {
-            let res = await axios.get(`http://localhost:4000/api/doctor/${id}`)
+            let res = await axios.get(`https://turno-test.onrender.com/api/doctor/${id}`)
             if (res.data.success) {
                return { success: true, res: res.data.res.review }
             }
@@ -121,7 +121,7 @@ const doctorActions = {
       return async () => {
          try {
             let res = await axios.put(
-               `http://localhost:4000/api/doctor/${doc}`,
+               `https://turno-test.onrender.com/api/doctor/${doc}`,
                { point, action },
                {
                   headers: {
@@ -142,7 +142,7 @@ const doctorActions = {
    deleteProfileDoctor: (token) => {
       return async () => {
          try {
-            let res = await axios.delete("http://localhost:4000/api/doctor", {
+            let res = await axios.delete("https://turno-test.onrender.com/api/doctor", {
                headers: {
                   Authorization: "Bearer " + token,
                },
@@ -161,7 +161,7 @@ const doctorActions = {
       return async () => {
          try {
             let res = await axios.delete(
-               "http://localhost:4000/api/appointments",
+               "https://turno-test.onrender.com/api/appointments",
                {
                   headers: {
                      Authorization: "Bearer " + token,

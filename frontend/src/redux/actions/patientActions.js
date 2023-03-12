@@ -4,7 +4,7 @@ const patientActions = {
    getCalendar: () => {
       return async (dispatch, getState) => {
          try {
-            let calendar = await axios.get("http://localhost:4000/api/calendar")
+            let calendar = await axios.get("https://turno-test.onrender.com/api/calendar")
             dispatch({ type: "GET_CALENDAR", payload: calendar.data.res })
             return { success: true, res: calendar.data.res }
          } catch (err) {
@@ -17,7 +17,7 @@ const patientActions = {
       return async () => {
          try {
             let res = await axios.put(
-               "http://localhost:4000/api/patient/" + id,
+               "https://turno-test.onrender.com/api/patient/" + id,
                { description },
                {
                   headers: {
@@ -40,7 +40,7 @@ const patientActions = {
       return async () => {
          try {
             let res = await axios.post(
-               `http://localhost:4000/api/appointment/${data.doctorId}`,
+               `https://turno-test.onrender.com/api/appointment/${data.doctorId}`,
                { date: data.date },
                {
                   headers: {
@@ -74,7 +74,7 @@ const patientActions = {
   confirmFormMail: (info, user, doc, action) => {
     return async () => {
       try {
-        let res = await axios.post("http://localhost:4000/api/mail",{info, doc, action}, {
+        let res = await axios.post("https://turno-test.onrender.com/api/mail",{info, doc, action}, {
             headers: {
               Authorization: "Bearer " + user,
             },
@@ -92,7 +92,7 @@ const patientActions = {
   getAvatars: () => {
    return async () => {
      try {
-       let res = await axios.get("http://localhost:4000/api/avatar");
+       let res = await axios.get("https://turno-test.onrender.com/api/avatar");
        return { success: true, res: res.data.res };
      } catch (err) {
        return { success: false, res: err };
@@ -102,7 +102,7 @@ const patientActions = {
  getSocialWork:()=>{
    return async () => {
       try {
-        let res = await axios.get("http://localhost:4000/api/socialwork");
+        let res = await axios.get("https://turno-test.onrender.com/api/socialwork");
         return { success: true, res: res.data.res[0].names};
       } catch (err) {
         return { success: false, res: err };

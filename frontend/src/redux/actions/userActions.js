@@ -4,7 +4,7 @@ const userActions = {
    signUpUser: (user) => {
       return async (dispatch) => {
          try {
-            let res = await axios.post("http://localhost:4000/api/user", user)
+            let res = await axios.post("https://turno-test.onrender.com/api/user", user)
             if (res.data.success) {
                dispatch({
                   type: "SIGN_UP",
@@ -26,7 +26,7 @@ const userActions = {
    logUserWithLs: (token) => {
       return async (dispatch) => {
          try {
-            let res = await axios.get("http://localhost:4000/api/verifyToken", {
+            let res = await axios.get("https://turno-test.onrender.com/api/verifyToken", {
                headers: {
                   Authorization: "Bearer " + token,
                },
@@ -51,7 +51,7 @@ const userActions = {
       return async (dispatch) => {
          try {
             let res = await axios.post(
-               `http://localhost:4000/api/${typeUser}`,
+               `https://turno-test.onrender.com/api/${typeUser}`,
                user
             )
             if (res.data.success) {
@@ -85,7 +85,7 @@ const userActions = {
     return async (dispatch) => {
       try {
         let res = await axios.put(
-          `http://localhost:4000/api/${type}`,
+          `https://turno-test.onrender.com/api/${type}`,
           { ...profileEdited },
             {
             headers: {
